@@ -1,72 +1,84 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+#Database
+dans le fichier .env vous trouvez le nom de base de donnée project, utilisateur:admin, mot de passe:Passw0rd.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+#Register 
+j'ai utilisé l'auth de laravel, grace au cmd php artisan make:auth
 
-## About Laravel
+#updatepassword
+j'ai utilisé mailtrap laravel.
+dans le fichier .env
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=19111584a77a30
+MAIL_PASSWORD=XXXXXXXXXXXXXX
+MAIL_ENCRYPTION=null
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+j'ai crée un compte avec ma boite gmail dans le site : vous pouvez le creer aussi pour tester.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+https://mailtrap.io/
 
-## Learning Laravel
+par la suite j'ai mets ceci :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+MAIL_USERNAME=19111584a77a30
+MAIL_PASSWORD=XXXXXXXXXXXXXX
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+j'ai modifier aussi url dans le fichier .env
+PP_URL=http://localhost:8000
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+et ça fonctionne.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
 
-## Contributing
+#items
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+d'aprés l'authentification j'affiche la liste des items format table avac pagination, et j'ai modifié la redirection dans
+blog\app\Http\Controllers\Auth(LoginController.php) 'protected $redirectTo = 'items''
 
-## Security Vulnerabilities
+#Additems
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+j'ai crée une vue dans dossier items(createitems.blade.php) et aussi un controller(ItemsController.php) et j'ai fais migrationn pour l'ajout d'un items.
+concernant l'image j'insert path dans la table et image physique(blog\storage\app\image)
 
-## License
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#Aduserfromcommandline
+
+j'ai crée  un command a l'aide de la command php artisan make:command CreateUsers
+
+j'ai changé la signature par 'users:create', la description par 'Create a new user' dans la function handle()
+
+j'ai ajouté un bout de code pour la demande des informations,j'ai importé model user dans se fichier pour la creation d'un nouveau utilisateur et aussi
+
+le sauvgardé  et afficher un message
+
+par la suite aller dans cmd et ecrire php atisan users:create
+
+#seedfakedata
+
+j'ai crée un model Item  grace au cmd php artisan make:model Item , aprés j'ai cru une factories a l'aide de la cmd 
+php artisan make:factory ItemsFactory --model=Item
+  
+j'ai importé le model item par la suite crée deux lignes ou ça veut dire deux colonnes title  description est qu'est ce qu'il va ce générer avec.
+aprés j'ai crée un seeds(blog\database\seeds(ItemsTableSeeder)) j'ai ajouté le model et aussi le nombre que je veux générer
+
+par la suite utilser cmd php artisan tinker	
+
+#unittests
+
+j'ai fais un unittest cases, donc j'ai instalé php unit grace au cmd sudo apt-get install phpunit,puis j'ai crée une page test(blog\tests\Unit(
+php artisan make:ItemsTest --unit)) avec un code.
+on peut le generer grace a ./vendor/bin/phpunit
+
+
+
+les futures taches a crées:
+1 change a user password from the command line
+2 I should be able to seed fake data (100 users) from the command line
+
+les futures taches a développé:
+1 validation des inputs(add a new user from the command line)
+2 List all items 
+
+
+ 
