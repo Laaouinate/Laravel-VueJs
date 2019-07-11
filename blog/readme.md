@@ -16,7 +16,7 @@ composer create-project --prefer-dist laravel/laravel blog
 php artisan migrate
 ```
 # You need to create account in :[mailtrap](https://mailtrap.io/) using your gmail for sending an email #
-## in the file  [.env](blog/README.md) put your details ##
+## in the file  [.env](https://github.com/Laaouinate/Laravel-VueJs/tree/master/blog) put your details ##
 
 * MAIL_USERNAME=19111584a77a30
 *  MAIL_PASSWORD=XXXXXXXXXXXXXX
