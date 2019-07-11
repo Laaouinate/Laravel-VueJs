@@ -2,10 +2,6 @@
 ```
 Composer global require laravel/installer
 ```
-# Create the project #
-```
-composer create-project --prefer-dist laravel/laravel blog
-```
 # In file [.env](https://github.com/Laaouinate/Laravel-VueJs/tree/master/blog) put your #
 
 1. DB_USERNAME=......
