@@ -38,6 +38,7 @@ factory('App\Item',1000)->create();
 ``` 
 sudo apt-get install phpunit
 ```
+### for the test ###
 ```
 ./vendor/bin/phpunit
 ```	
