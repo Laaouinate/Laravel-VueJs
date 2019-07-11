@@ -38,7 +38,7 @@ sudo apt-get install phpunit
 ```
 ./vendor/bin/phpunit
 ```	
-# for run the server  #2 
+# for run the server  #
 ```
 php artisan serve
 ```
