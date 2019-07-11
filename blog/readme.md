@@ -6,7 +6,7 @@ Composer global require laravel/installer
 ```
 composer create-project --prefer-dist laravel/laravel blog
 ```
-# In file [.env](blog/README.md) put your #
+# In file [.env](https://github.com/Laaouinate/Laravel-VueJs/tree/master/blog) put your #
 
 1. DB_USERNAME=......
 2. DB_PASSWORD=......
