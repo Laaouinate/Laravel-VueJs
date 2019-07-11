@@ -6,7 +6,7 @@ Composer global require laravel/installer
 ```
 composer create-project --prefer-dist laravel/laravel blog
 ```
-# In file [.env](blog) put your #
+# In file [.env](blog/README.md) put your #
 
 1. DB_USERNAME=......
 2. DB_PASSWORD=......
@@ -16,7 +16,7 @@ composer create-project --prefer-dist laravel/laravel blog
 php artisan migrate
 ```
 # You need to create account in :[mailtrap](https://mailtrap.io/) using your gmail for sending an email #
-## in the file  [.env](blog) put your details ##
+## in the file  [.env](blog/README.md) put your details ##
 
 * MAIL_USERNAME=19111584a77a30
 *  MAIL_PASSWORD=XXXXXXXXXXXXXX
