@@ -1,6 +1,6 @@
 # Install all the dependencies using composer #
 ```
-Composer global require laravel/installer
+composer install 
 ```
 # In file [.env](https://github.com/Laaouinate/Laravel-VueJs/blob/master/blog/.env) put your #
 
@@ -10,6 +10,10 @@ Composer global require laravel/installer
 # Then do in cmd :  #
 ```
 php artisan migrate
+```
+# If you have the project already this command will drop all tables from your database and run all migrations
+```
+php artisan migrate:fresh
 ```
 # You need to create account in :[mailtrap](https://mailtrap.io/) using your gmail for sending an email #
 ## in the file  [.env](https://github.com/Laaouinate/Laravel-VueJs/blob/master/blog/.env) put your details ##
