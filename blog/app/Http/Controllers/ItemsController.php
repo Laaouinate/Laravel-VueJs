@@ -8,34 +8,45 @@ use Illuminate\Http\UploadedFile;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Requests\ItemRequest;
+
 use App\Item;
 
 use Auth;
 
+
+
 class ItemsController extends Controller
 {
-	public function __construct(){
+	public function __construct()
+    {
 		$this->middleware('auth');
 	}
 
 
-	public function index(){
+	public function index()
+    {
 		//$list = Item::all();
         $list =Item::paginate(3);
+        
 		return view('items.index',['items'=>$list]);
         //return response()->json($list);
 
 	}
 
-    public function create(){
+
+    public function create()
+    {
     	return view('items.createitems');
     }
 
-    public function store(Request $request){
 
+    public function store(ItemRequest $request)
+    {
     	$Item = new Item();
 
     	$Item->title = $request->input('title');
+
     	$Item->description = $request->input('description');
 
     	if($request->hasFile('photo'))
@@ -44,7 +55,9 @@ class ItemsController extends Controller
     	}
     	
 		$Item->save();
-		return redirect('items');
 
+        session()->flash('success','the article has been saved');
+
+		return redirect('items');
     }
 }
