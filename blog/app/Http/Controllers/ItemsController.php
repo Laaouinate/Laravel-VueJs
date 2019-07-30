@@ -27,10 +27,10 @@ class ItemsController extends Controller
 	public function index()
     {
 		//$list = Item::all();
-        $list =Item::paginate(3);
+        $list =Item::paginate(10);
         
-		return view('items.index',['items'=>$list]);
-        //return response()->json($list);
+		//return view('items.index',['items'=>$list]);
+        return response()->json($list);
 
 	}
 
@@ -58,6 +58,6 @@ class ItemsController extends Controller
 
         session()->flash('success','the article has been saved');
 
-		return redirect('items');
+		return redirect('liste');
     }
 }

@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-route::get('items','ItemsController@index');
+Route::get('/liste', function () { return view('items.index'); });
+Route::get('items','ItemsController@index');
 Route::get('items/create','ItemsController@create');
 Route::post('/items','ItemsController@store');
 Route::get('/home', 'HomeController@index')->name('home');
