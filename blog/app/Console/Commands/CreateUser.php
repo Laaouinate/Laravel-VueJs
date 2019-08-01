@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Console\Commands;
-
 use Illuminate\Console\Command;
-
 use App\User;
+use App\service\UserService;
 
-class CreateUsers extends Command
+class CreateUser extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'users:create';
+    protected $signature = 'Create:User';
 
     /**
      * The console command description.
@@ -27,9 +26,10 @@ class CreateUsers extends Command
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserService $UserService)
     {
         parent::__construct();
+        $this->UserService = $UserService;
     }
 
     /**
@@ -38,18 +38,18 @@ class CreateUsers extends Command
      * @return mixed
      */
     public function handle()
-    { 
+    {
         $name = $this->ask('Name');
         $email = $this->ask('Email');
         $password = $this->secret('Password');
-        $confirm_password = $this->secret('Confirm password');
-
-         $user = new User;
-        $user->name = $name;
+        
+        $user = new User;
+        $user->name =  $name;
         $user->email = $email;
-        $user->password = bcrypt($password);
-        $user->save();
+        $user->password = $password;
+        $this->UserService->createUser($user);
+
         $this->info('User '. $name .' ('. $email .') has been created!');
         return true;
-        }
+    }
 }
