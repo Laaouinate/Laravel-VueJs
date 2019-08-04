@@ -47,7 +47,7 @@ class CreateUser extends Command
         $user->name =  $name;
         $user->email = $email;
         $user->password = $password;
-        $this->UserService->createUser($user);
+        $this->UserService->createUserWithParams($user);
 
         $this->info('User '. $name .' ('. $email .') has been created!');
         return true;

@@ -22,6 +22,7 @@ Vue.use(require('vue-resource'));
 //Vue.component('liste', require('./components/ListeComponent.vue'));
 import liste from './components/ListeComponent.vue'; 
 Vue.component('InfiniteLoading', require('vue-infinite-loading'));
+//import from './components/buttonComponent.vue'
 //const liste = require('./components/ListeComponent.vue');
 //console.log("ouuuuups", liste)
 /**

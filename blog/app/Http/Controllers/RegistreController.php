@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 use App\User;
 
 use App\service\UserService;
+
+use App\Http\Requests\userRequest;
+
+
 
 class RegistreController extends Controller
 {
@@ -20,14 +25,9 @@ class RegistreController extends Controller
         return view('items.registe');
     }
 
-    public function store(Request $Request)
+    public function store(userRequest $Request)
     {
-        $user = new User;
-        $user->name = $Request->input('name');
-        $user->email = $Request->input('email');
-        $user->password = $Request->input('password');
-
-        $this->UserService->createUser($user);
+        $this->UserService->createUser($Request);
         return redirect('/home');
     }
 }

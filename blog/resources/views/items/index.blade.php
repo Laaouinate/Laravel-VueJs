@@ -22,7 +22,6 @@
 					<a href="{{ url('items/create')}}" class="btn btn-success">New Items</a>
 
 				</div>
-                
                 <liste></liste>
         </div>
 

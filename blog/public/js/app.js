@@ -1697,6 +1697,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1714,7 +1716,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
@@ -1732,13 +1736,26 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         $.each(data.data, function (key, value) {
           vm.liste.push(value);
-        });
-        $state.loaded();
+        }); //$state.loaded();
+      });
+      this.page = this.page + 1;
+    },
+    getData: function getData() {
+      var vm = this;
+      this.$http.get('/items?page=' + this.page).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data);
+        $.each(data.data, function (key, value) {
+          vm.liste.push(value);
+        }); //$state.loaded();
       });
       this.page = this.page + 1;
     }
   }
-});
+}, "mounted", function mounted() {
+  this.getData();
+}));
 
 /***/ }),
 
@@ -37052,33 +37069,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.liste, function(item) {
-        return _c("tr", { key: item.id }, [
-          _c("td", [_vm._v(_vm._s(item.id))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.title))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(item.description))])
-        ])
-      }),
-      _vm._v(" "),
-      _c("infinite-loading", {
-        on: {
-          distance: function($event) {
-            1
-          },
-          infinite: _vm.infiniteHandler
-        }
-      })
-    ],
-    2
-  )
+  return _c("div", [
+    _c(
+      "table",
+      { staticClass: "table" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.liste, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", [_vm._v(_vm._s(item.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.title))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(item.description))])
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.getData } }, [_vm._v("Load Data")])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -50839,7 +50851,8 @@ Vue.use(__webpack_require__(/*! vue-resource */ "./node_modules/vue-resource/dis
 //Vue.component('liste', require('./components/ListeComponent.vue'));
 
 
-Vue.component('InfiniteLoading', __webpack_require__(/*! vue-infinite-loading */ "./node_modules/vue-infinite-loading/dist/vue-infinite-loading.js")); //const liste = require('./components/ListeComponent.vue');
+Vue.component('InfiniteLoading', __webpack_require__(/*! vue-infinite-loading */ "./node_modules/vue-infinite-loading/dist/vue-infinite-loading.js")); //import from './components/buttonComponent.vue'
+//const liste = require('./components/ListeComponent.vue');
 //console.log("ouuuuups", liste)
 
 /**

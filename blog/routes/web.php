@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 //Auth::routes();
 Auth::routes(['register' => false]);
-Route::get('/liste', function () { return view('items.index'); });
+Route::get('/listeItem', function () { return view('items.index'); });
 Route::get('items','ItemsController@index');
 Route::get('items/create','ItemsController@create');
 Route::post('/items','ItemsController@store');
