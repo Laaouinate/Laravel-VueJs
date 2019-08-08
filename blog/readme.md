@@ -45,7 +45,7 @@ install for linux:sudo apt-get install phpunit
 ```
 ..* `Service` - Folder service,contains item file for create the items and users file for create users from command line and interface.Each file contains method of creation.
 
-    - `App\Console\Commands\CreateUser` -
+* `App\Console\Commands\CreateUser` -
 
 ..* `App\Http\Requests` -
 ..* `App\Http\controlles` -
