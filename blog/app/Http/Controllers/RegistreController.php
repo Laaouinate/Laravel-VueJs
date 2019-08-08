@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-
-use App\User;
-
 use App\service\UserService;
-
 use App\Http\Requests\userRequest;
-
-
+use App\User;
 
 class RegistreController extends Controller
 {

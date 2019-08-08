@@ -4,13 +4,9 @@ namespace App\service;
 
 
 use App\User;
-
 use Illuminate\Support\Facades\Hash;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests\userRequest;
-
 
 class UserService {
 
