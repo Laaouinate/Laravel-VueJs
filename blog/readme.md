@@ -40,10 +40,9 @@ php artisan migrate:refresh
 ```
 ###### unittests
 install for linux:sudo apt-get install phpunit 
-'''
+```
 ./vendor/bin/phpunit --filter testcreateuser
-
-'''
+```
 ..* `Service` - Folder service,contains item file for create the items and users file for create users from command line and interface.Each file contains method of creation.
 
 ..* `App\Console\Commands\CreateUser` -
