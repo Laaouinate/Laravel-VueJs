@@ -29,7 +29,7 @@ just follow steps and the user will be created
 ```
 php atisan users:create
 ```
-######Database seeding
+###### Database seeding
 will be create 1000 items and 10 users
 ```
 php artisan db:seed
@@ -45,12 +45,14 @@ install for linux:sudo apt-get install phpunit
 
 '''
 ..* `Service` - Folder service,contains item file for create the items and users file for create users from command line and interface.Each file contains method of creation.
+
 ..* `App\Console\Commands\CreateUser` -
-..* `App\Http\Requests`
-..* `App\Http\controlles`
-..* `App\resources\js\components\ListeComponent`
-..* `App\resources\js\app.js`
-..* `App\resources\views\items`
-..* `database\factories`
-..* `database\seeds`
-..* `tests\Feature`
+
+..* `App\Http\Requests` -
+..* `App\Http\controlles` -
+..* `App\resources\js\components\ListeComponent` -
+..* `App\resources\js\app.js` -
+..* `App\resources\views\items` -
+..* `database\factories` -
+..* `database\seeds` -
+..* `tests\Feature` -
