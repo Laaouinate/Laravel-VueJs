@@ -58,15 +58,13 @@ install for linux:sudo apt-get install phpunit
 ./vendor/bin/phpunit --filter testcreateuser
 ```
 * `Service` - Folder service,contains item file for create the items and users file for create users from command line and interface.Each file contains method of creation.
-* `App\Console\Commands\CreateUser` - In the file i make call the service and i use the method the creation.
+* `App\Console\Commands\CreateUser` - In the file i make call the service and i use the method of creation.
 * `App\Http\Requests` - inside i have created ItemReqest file and userRequest file for the validation
-* `App\Http\controlles` - Inside i have created controllers. ItemController contains index function for display the items, create function for the view, store function for save the items with the service using method,
-and i have called the the ItemRequest for validation.RegistrationController contains the userRequest for validation and called the service using method.
+* `App\Http\controlles` - Inside i have created controllers. ItemController contains index function for display the items, create function for the view, store function for save the items with the service, using method, and i have called the ItemRequest for validation.RegistrationController contains the userRequest for validation and called the service, using method.
 * `App\resources\js\components\ListeComponent` - Inside of template i have putted table with boucle for and button for load data,and in export default i have putted my code script.
 * `App\resources\js\app.js` - I have imported my components list and components InfiniteLoading.
-* `App\resources\js\app.js` - I have imported my components list and components ListeComponent.
-* `App\resources\views\items` - I have created my views create item and for display may data also f registration user.
+* `App\resources\views\items` - I have created my views create item and for display my data also f registration user.
 * `database\factories` - I have created ItemsFactory and i used them with the models for get data.
-* `database\seeds` - have created ItemsTableSeeder and UsersTtableSeeder and inside i have used the models with the factory and the number of data.
+* `database\seeds` - I have created ItemsTableSeeder and UsersTtableSeeder and inside i have used the models with the factory and the number of data.
 * `tests\Feature` - I heave creation function inside for generate an user for the test.
 * `routes\web` - I have putted all routes.
