@@ -1,7 +1,7 @@
-#Laravel/VueJs coding challenge
+# Laravel/VueJs coding challenge
 __________________________________________
 
-###Installation
+### Installation
 
 Install all the dependencies using composer
 Composer global require laravel/installer
@@ -24,7 +24,7 @@ You can now access the server at http://localhost:8000
 You need to create account in https://mailtrap.io/ using your gmail for sending an email
 after create account, you need to copy credentials username and password and put them in the .env in MAIL_USERNAME,MAIL_PASSWORD
 
-######Add user from command line
+###### Add user from command line
 just follow steps and the user will be created		
 ```
 php atisan users:create
@@ -38,7 +38,7 @@ php artisan db:seed
 ```
 php artisan migrate:refresh
 ```
-######unittests
+###### unittests
 install for linux:sudo apt-get install phpunit 
 '''
 ./vendor/bin/phpunit --filter testcreateuser
